@@ -1,24 +1,24 @@
-# Dischook
+# Webcord
 Dischook is an easy-to-use but yet powerful modules for interacting with Discord webhooks.
 # Getting Started
 > Installing
 ```
-npm install dischook --save
+npm install webcord --save
 ```
 
 * Examples
 > Embeds are done exactly like RichEmbed in the [Discord.JS](http://discord.js.org) libaray.
 
-> Requiring Dischook
+> Requiring Webcord
 ```js
-const dischook  =  require('dischook');
+const webcord  =  require('webcord');
 ```
-> Using Dischook
+> Using Webcord
 * How do you get a webhook? you must have "MANAGE_CHANNELS" permission. Find the channel you'd like to send the message too, > Webhooks > Create Webhook
 ```js
 const webhookURL = 'https://discordapp.com/api/webhooks/74947297497294/AhkKjfosAYQIslfh'
 const avatarURL = 'https://some-image-url.com/image.png'
-new dischook(webhookURL, 'Example Bot', avatarURL)
+new webcord(webhookURL, 'Example Bot', avatarURL)
     .setTitle('Im a title!')
     .setDescription('Im a description!')
     .addField('Field', '1')
@@ -30,11 +30,11 @@ new dischook(webhookURL, 'Example Bot', avatarURL)
 ```
 > You can also send normal messages. you can also use markdown!
 ```js
-const dischook  =  require('dischook');
+const webcord  =  require('webcord');
 
 const webhookURL = 'https://discordapp.com/api/webhooks/74947297497294/AhkKjfosAYQIslfh'
 const avatarURL = 'https://some-image-url.com/image.png'
-new dischook(webhookURL, 'Example Bot', avatarURL)
+new webcord(webhookURL, 'Example Bot', avatarURL)
     .send('This is a regular message with no embed, **and this is some bold text**')
 ```
 
