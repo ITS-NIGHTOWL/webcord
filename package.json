@@ -1,0 +1,29 @@
+{
+  "name": "webcord",
+  "version": "1.0.0",
+  "description": "A simple and lightweight webhook library for discord",
+  "main": "main.js",
+  "dependencies": {
+    "node-fetch": "^2.6.0"
+  },
+  "devDependencies": {
+    "eslint": "^6.1.0"
+  },
+  "scripts": {
+    "test": "echo \"No test specified\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/itsretr0n/dischook.git"
+  },
+  "keywords": [
+    "webhook",
+    "discord"
+  ],
+  "author": "Retr0n, Nightz",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/itsretr0n/dischook/issues"
+  },
+  "homepage": "https://github.com/itsretr0n/dischook#readme"
+}
