@@ -1,5 +1,5 @@
 # Webcord
-Dischook is an easy-to-use but yet powerful modules for interacting with Discord webhooks.
+Webcord is an easy-to-use but yet powerful modules for interacting with Discord webhooks.
 # Getting Started
 > Installing
 ```
