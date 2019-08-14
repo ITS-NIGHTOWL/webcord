@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/itsretr0n/dischook.git"
+    "url": "git+https://github.com/itsretr0n/Webcord.git"
   },
   "keywords": [
     "webhook",
@@ -23,7 +23,7 @@
   "author": "Retr0n, Nightz",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/itsretr0n/dischook/issues"
+    "url": "https://github.com/itsretr0n/Webcord/issues"
   },
-  "homepage": "https://github.com/itsretr0n/dischook#readme"
+  "homepage": "https://github.com/itsretr0n/Webcord#readme"
 }
