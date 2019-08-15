@@ -1,9 +1,9 @@
 /* eslint-disable no-constant-condition */
 
 /** Node JS */
-const window = {}
-window.fetch = require('node-fetch')
-module.exports = webcord
+//const window = {}
+//window.fetch = require('node-fetch')
+//module.exports = webcord
 /** END */
 function isEmpty(obj) {
 	return Object.keys(obj).length === 0 && obj.constructor === Object
