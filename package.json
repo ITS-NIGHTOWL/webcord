@@ -1,6 +1,6 @@
 {
   "name": "webcord",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A simple and lightweight webhook library for discord",
   "main": "main.js",
   "dependencies": {
