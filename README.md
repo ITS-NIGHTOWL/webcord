@@ -71,8 +71,8 @@ new webcord(webhookURL,'Generic Bot Name',avatarURL)
 
 # Contributor
 
-* Retr0n
-    * Discord: Retr0n#0001
+* ILTS_N1GH7OWL
+    * Discord: ITS_N1GH7OWL#6550
     * Twitter: [ITS_NIGH7OWL](https://twitter.com/ITS_NIGH7OWL)
 * Nightz
     * Discord: Nightz#7233
