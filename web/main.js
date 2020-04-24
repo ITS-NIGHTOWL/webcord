@@ -28,6 +28,12 @@ webcord.prototype.setTitle = function (text) {
 	})
 	return this
 }
+webcord.prototype.setThumbnail = function (text) {
+	Object.assign(this.message.embeds[0], {
+		thumbnail: text
+	})
+	return this
+}
 webcord.prototype.setDescription = function (text) {
 	Object.assign(this.message.embeds[0], {
 		description: text
