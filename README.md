@@ -77,3 +77,4 @@ new webcord(webhookURL,'Generic Bot Name',avatarURL)
 * Nightz
     * Discord: Nightz#7233
     * Twitter: [NightzBR](https://twitter.com/NightzBR)
+* C0braD3v
