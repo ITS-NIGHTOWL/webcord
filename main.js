@@ -71,6 +71,12 @@ webcord.prototype.setImage = function (url) {
 	})
 	return this
 }
+webcord.prototype.setURL = function (url) {
+	Object.assign(this.message.embeds[0], {
+		url: url
+	})
+	return this
+}
 webcord.prototype.setThumbnail = function (url) {
 	Object.assign(this.message.embeds[0], {
 		thumbnail: {
