@@ -71,10 +71,11 @@ new webcord(webhookURL,'Generic Bot Name',avatarURL)
 
 # Contributor
 
-* ILTS_N1GH7OWL
-    * Discord: ITS_N1GH7OWL#6550
+* [ITS_N1GH7OWL](https://github.com/ITS-NIGHTOWL/)
+    * Discord: anechkaisacutie❤#6550
     * Twitter: [ITS_NIGH7OWL](https://twitter.com/ITS_NIGH7OWL)
-* Nightz
-    * Discord: Nightz#7233
-    * Twitter: [NightzBR](https://twitter.com/NightzBR)
-* C0braD3v
+    
+* [TitanDev](https://github.com/titandev)
+    * Discord: Titan#5606
+
+* [C0braD3v](https://github.com/c0brad3v)
