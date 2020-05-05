@@ -69,11 +69,18 @@ webcord.prototype.setFooter = function (text) {
 	})
 	return this
 }
+
 webcord.prototype.setImage = function (url) {
 	Object.assign(this.message.embeds[0], {
 		image: {
 			'url': url
 		}
+	})
+	return this
+}
+webcord.prototype.setURL = function (url) {
+	Object.assign(this.message.embeds[0], {
+		url: url
 	})
 	return this
 }
