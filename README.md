@@ -1,4 +1,4 @@
-![Build](https://github.com/ITS-NIGHTOWL/Webcord/workflows/TypeScript%20CI/badge.svg)
+![Build](https://github.com/ITS-NIGHTOWL/Webcord/workflows/TypeScript%20CI/badge.svg)[![NPM](https://nodei.co/npm/Webcord.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/Webcord/)
 --------------------------------------------------------------------------------------------
 # Webcord
 Webcord is an easy-to-use yet powerful modules for interacting with Discord webhooks. It works in both node.js, and on the browser!
