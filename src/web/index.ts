@@ -1,14 +1,5 @@
-/* eslint-disable no-constant-condition */
-
-/** Node JS */
-const window = {}
-window.fetch = require('node-fetch')
-module.exports = webcord
-/** END */
-function isEmpty(obj) {
-	return Object.keys(obj).length === 0 && obj.constructor === Object
-}
-function webcord(url, name = null, avatar_url = null) {
+() => {
+	function webcord(url: any, name = null, avatar_url = null) {
 	this['webhook'] = url
 	this['name'] = name
 	this['avatar_url'] = avatar_url
@@ -22,19 +13,19 @@ function webcord(url, name = null, avatar_url = null) {
 		'avatar_url': avatar_url
 	})
 }
-webcord.prototype.setTitle = function (text) {
+webcord.prototype.setTitle = function (text: any) {
 	Object.assign(this.message.embeds[0], {
 		title: text
 	})
 	return this
 }
-webcord.prototype.setDescription = function (text) {
+webcord.prototype.setDescription = function (text: any) {
 	Object.assign(this.message.embeds[0], {
 		description: text
 	})
 	return this
 }
-webcord.prototype.addField = function (title, value, inline = false) {
+webcord.prototype.addField = function (title: any, value: any, inline = false) {
 	if (!this.message.embeds[0].fields) {
 		Object.assign(this.message.embeds[0], {
 			fields: new Array
@@ -47,15 +38,16 @@ webcord.prototype.addField = function (title, value, inline = false) {
 	})
 	return this
 }
-webcord.prototype.setColor = function (hex) {
+webcord.prototype.setColor = function (hex: string | number) {
+	if (typeof hex === 'string') {
 	hex = hex.replace(/#/g, '')
-	hex = parseInt(hex, 16)
+	hex = parseInt(hex, 16)}
 	Object.assign(this.message.embeds[0], {
 		color: hex
 	})
 	return this
 }
-webcord.prototype.setFooter = function (text) {
+webcord.prototype.setFooter = function (text: any) {
 	Object.assign(this.message.embeds[0], {
 		footer: {
 			'text': text
@@ -63,7 +55,7 @@ webcord.prototype.setFooter = function (text) {
 	})
 	return this
 }
-webcord.prototype.setImage = function (url) {
+webcord.prototype.setImage = function (url: any) {
 	Object.assign(this.message.embeds[0], {
 		image: {
 			'url': url
@@ -71,13 +63,13 @@ webcord.prototype.setImage = function (url) {
 	})
 	return this
 }
-webcord.prototype.setURL = function (url) {
+webcord.prototype.setURL = function (url: any) {
 	Object.assign(this.message.embeds[0], {
 		url: url
 	})
 	return this
 }
-webcord.prototype.setThumbnail = function (url) {
+webcord.prototype.setThumbnail = function (url: any) {
 	Object.assign(this.message.embeds[0], {
 		thumbnail: {
 			'url': url
@@ -85,7 +77,7 @@ webcord.prototype.setThumbnail = function (url) {
 	})
 	return this
 }
-webcord.prototype.setAuthor = function (name, image = null, url = null) {
+webcord.prototype.setAuthor = function (name: any, image = null, url = null) {
 	Object.assign(this.message.embeds[0], {
 		author: {
 			'name': name,
@@ -102,24 +94,28 @@ webcord.prototype.setTimestamp = function () {
 	return this
 }
 webcord.prototype.send = function (message = null) {
-	async function post(webhook, data) {
+	async function post(webhook: RequestInfo, data: { content: string, embeds: any, username: string, avatar_url: string } | string) {
 		data = JSON.stringify(data)
-		window.fetch(webhook, {
+		require('node-fetch')(webhook, {
 			method: 'post',
 			body: data,
 			headers: { 'Content-Type': 'application/json' },
-		}).then().catch(err => {
+		}).then().catch((err: { code: string; body: { code: number } }) => {
 			if (err) {
 				if (err.code === 'ECONNRESET' || 'ETIMEDOUT') return console.error('oof')
 				if (err.body && err.body.code === 50006) return console.error('oof')
 			}
 		})
 	}
+	function isEmpty(obj: { constructor?: any }) {
+		return Object.keys(obj).length === 0 && obj.constructor === Object
+	}
 	if (message && !isEmpty(this.message.embeds[0])) {
 		post(this.webhook, { 'content': message, 'embeds': this.message.embeds, 'username': this.name, 'avatar_url': this.avatar_url })
 	} else if (message && isEmpty(this.message.embeds[0])) {
-		post(this.webhook, { 'content': message, 'username': this.name, 'avatar_url': this.avatar_url })
+		post(this.webhook, { 'content': message, embeds: {}, 'username': this.name, 'avatar_url': this.avatar_url })
 	} else if (!message && !isEmpty(this.message.embeds[0])) {
-		post(this.webhook, { 'embeds': this.message.embeds, 'username': this.name, 'avatar_url': this.avatar_url })
+		post(this.webhook, { 'content': '', 'embeds': this.message.embeds, 'username': this.name, 'avatar_url': this.avatar_url })
 	} else return console.error('oof')
+}
 }

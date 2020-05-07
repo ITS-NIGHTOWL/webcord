@@ -1,16 +1,10 @@
 {
   "name": "webcord",
-  "version": "1.0.4",
+  "version": "1.2.0",
   "description": "A simple and lightweight webhook library for discord",
-  "main": "main.js",
+  "main": "build",
   "dependencies": {
     "node-fetch": "^2.6.0"
-  },
-  "devDependencies": {
-    "eslint": "^6.1.0"
-  },
-  "scripts": {
-    "test": "echo \"No test specified\""
   },
   "repository": {
     "type": "git",
@@ -21,10 +15,13 @@
     "discord",
     "browser"
   ],
-  "author": "Retr0n, Nightz",
+  "author": "Retr0n, Nightz, C0braD3v",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/itsretr0n/Webcord/issues"
   },
-  "homepage": "https://github.com/itsretr0n/Webcord#readme"
+  "homepage": "https://github.com/itsretr0n/Webcord#readme",
+  "devDependencies": {
+    "@types/node": "^13.13.5"
+  }
 }
