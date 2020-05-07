@@ -29,6 +29,7 @@ new webcord(webhookURL, 'WebCord', avatarURL)
     .send('Raw Text Message') // NOTE: You MUST include .send() to make the WebHook POST request, but you do not have to include any arguments if you don't want to!
 ```
 The above example would look like this:
+
 <img src='https://cdn.discordapp.com/attachments/580515184184131584/707843551719063633/unknown.png'>
 
 ## WebCord in a Browser
@@ -61,9 +62,10 @@ new webcord(webhookURL,'WebCord',avatarURL)
 	.send()
 ```
 The above example would look like this:
+
 <img src='https://cdn.discordapp.com/attachments/580515184184131584/707844501888172063/unknown.png'>
 
 # Contributing
 WebCord Contributors can be found [here](https://github.com/ITS-NIGHTOWL/Webcord/graphs/contributors)!
 
-Want to contribute? Follow the [guide](https://github.com/ITS-NIGHTOWL/Webcord/blob/master/CONTRIBUTING.md) on Contributing!
+Want to contribute? Follow the [Contributing Guide](https://github.com/ITS-NIGHTOWL/Webcord/blob/master/CONTRIBUTING.md)!
