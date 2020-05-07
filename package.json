@@ -4,7 +4,8 @@
   "description": "A simple and lightweight webhook library for discord",
   "main": "build",
   "dependencies": {
-    "node-fetch": "^2.6.0"
+    "node-fetch": "^2.6.0",
+    "typescript": "^3.8.3"
   },
   "repository": {
     "type": "git",
