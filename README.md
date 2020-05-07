@@ -71,13 +71,7 @@ new webcord(webhookURL,'Generic Bot Name',avatarURL)
 	.send()
 ```
 
-# Contributor
+# Contributors
+WebCord Contributors can be found [here](https://github.com/ITS-NIGHTOWL/Webcord/graphs/contributors)!
 
-* [ITS_N1GH7OWL](https://github.com/ITS-NIGHTOWL/)
-    * Discord: anechkaisacutie❤#6550
-    * Twitter: [ITS_NIGH7OWL](https://twitter.com/ITS_NIGH7OWL)
-    
-* [TitanDev](https://github.com/titandev)
-    * Discord: Titan#5606
-
-* [C0braD3v](https://github.com/c0brad3v)
+Want to [contribute](https://github.com/ITS-NIGHTOWL/Webcord/blob/master/CONTRIBUTING.md)?
