@@ -1,4 +1,2 @@
-node_modules
-.vsls.json
-test.js
-test
+node_modules/
+build/
