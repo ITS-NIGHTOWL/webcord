@@ -67,6 +67,6 @@ The above code outputs this:
 
 <img src='https://media.discordapp.net/attachments/712436922290536448/712438626885304400/preview.png'>		
 
-  # Contributing		
+# Contributing		
 Webcord Contributors can be found [here](https://github.com/ITS-NIGHTOWL/Webcord/graphs/contributors)!		
 Want to contribute? Follow the [Contributing Guide](https://github.com/ITS-NIGHTOWL/Webcord/blob/master/CONTRIBUTING.md)!		
