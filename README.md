@@ -24,13 +24,13 @@ Highlighting over the code in [Visual Studio Code](https://code.visualstudio.com
 const webcord = require("webcord")
 
 new webcord({
-    url: "https://discordapp.com/api/webhooks/712433174063349761/-YgMVHCyQlfxval8rwJYO79CuJjrIj1jwAqePLluBgfQseU0FFH1GhEeiJf8bxnmfWOQ",
-    name: "Webcord v2.0.0",
-    avatar: "https://cdn.clipart.email/401241ecd4daff63d501b958f75a734b_discord-logo-icon-293532-free-icons-library_250-250.png"
+    url: "https://discordapp.com/api/webhooks/712433174063349761/-YgMVHCyQlfxval8rwJYO79CuJjrIj1jwAqePLluBgfQseU0FFH1GhEeiJf8bxnmfWOQ", // Discord webhook url
+    name: "Webcord v2.0.0", // Webhook display name
+    avatar: "https://cdn.clipart.email/401241ecd4daff63d501b958f75a734b_discord-logo-icon-293532-free-icons-library_250-250.png" // Webhook display avatar
 }) // Configures the webhook
 .setTitle("Add titles like this") // Sets an embed title
 .setDescription("Set some descriptions") // Sets an embed description
-.addField('Add single fields:', "like me!", false) // Adds an embed field (max 25)
+.addField('Add single fields:', "like me!", false) // Adds an embed field (max 25 fields)
 .addFields({
     name: "Hate repeating yourself?",
     value: "set mutliple fields with the `.addFields()`!",
@@ -40,7 +40,7 @@ new webcord({
     name: "I'm another field",
     value: "Set with the `addFields()` method!",
     inline: false
-})
+}) // Adds multiple fields at once (max 25 fields)
 .setAuthor({
     name: "Easily set an author field",
     icon: "https://discord.com/assets/2c21aeda16de354ba5334551a883b481.png",
@@ -55,6 +55,8 @@ new webcord({
 .setTimestamp() // Sets the timestamp of the embed
 .setThumbnail("https://discord.com/assets/f72fbed55baa5642d5a0348bab7d7226.png")
 .setColor("#7289DA") // Sets an embed color
+.inc() // Creates another embed
+.setTitle("This title is a part of the new embed!") // Creates a title on the new embed
 .send("This is an optional plain text message").then((res) => {
     console.log(res) //Logs all request information to the console
 }) 
@@ -65,7 +67,7 @@ new webcord({
  ```
 The above code outputs this:
 
-<img src='https://media.discordapp.net/attachments/712436922290536448/712438626885304400/preview.png'>		
+<img src='https://media.discordapp.net/attachments/712436922290536448/712448785648844850/preview.png'>		
 
 # Contributing		
 Webcord Contributors can be found [here](https://github.com/ITS-NIGHTOWL/Webcord/graphs/contributors)!		
