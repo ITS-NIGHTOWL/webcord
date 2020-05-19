@@ -302,7 +302,6 @@ class Webcord {
 				if (this.#fields[i].length > 25) return err(new Error('You cannot have more than 25 fields in a single embed'))
 				this.#msg.embeds[i].fields = this.#fields[i]
 				this.#fields[i].forEach((val) => {
-					console.log(val)
 					char += val.name.length
 					char += val.value.length
 				})
