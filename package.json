@@ -1,6 +1,6 @@
 {
   "name": "webcord",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "A lightweight library for interacting with Discord webhooks.",
   "main": "index.js",
   "directories": {
