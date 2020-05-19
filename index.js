@@ -63,7 +63,7 @@ class Webcord {
 		this.#images = ['']
 		this.#thumbnails = ['']
 		this.#authors = [{}]
-		this.#fields = []
+		this.#fields = [[]]
 		this.#url = options.url
 		this.#embedTotal = 0
 		this.#embedIndex = 0
@@ -78,6 +78,7 @@ class Webcord {
 
 	/**
 	 * @description Increments to the next embed.
+	 * @returns {Webcord} this
 	 */
 	inc() {
 		if (this.#embedTotal <= this.#embedIndex) {
@@ -99,6 +100,7 @@ class Webcord {
 
 	/**
 	 * @description Decrement to the previous embed.
+	 * @returns {Webcord} this
 	 */
 	dec() {
 		this.#embedIndex--
@@ -113,6 +115,8 @@ class Webcord {
 	 * @returns {Webcord} this
 	 */
 	addField(name, value, inline = false) {
+		if (name.length > 256) return err(new Error('The name cannot be longer than 256 characters located inside .addField()'))
+		if (value.length > 1024) return err(new Error('The value cannot be longer than 1024 characters located inside .addField()'))
 		this.addFields({
 			name,
 			value,
@@ -146,9 +150,11 @@ class Webcord {
 	/**
 	 * @description Sets a title on the embed.
 	 * @param {string} title The title of the embed
+	 * @returns {Webcord} this
 	 */
 	setTitle(title) {
 		if (!title) return err(new Error('A title must be specified as a parameter in .setTitle()'))
+		if (title.length > 256) return err(new Error('The title cannot be longer than 256 characters located inside .setTitle()'))
 		this.#titles[this.#embedIndex] = title
 		return this
 	}
@@ -156,9 +162,11 @@ class Webcord {
 	/**
 	 * @description Sets a description on the embed.
 	 * @param {string} description The description of the embed
+	 * @returns {Webcord} this
 	 */
 	setDescription(description) {
 		if (!description) return err(new Error('A description must be specified as a parameter in .setDescription()'))
+		if (description.length > 2048) return err(new Error('The description cannot be longer than 256 characters located inside .setDescription()'))
 		this.#descriptions[this.#embedIndex] = description
 		return this
 	}
@@ -166,6 +174,7 @@ class Webcord {
 	/**
 	 * @description Sets a url on the embed.
 	 * @param {string} url The url of the embed
+	 * @returns {Webcord} this
 	 */
 	setURL(url) {
 		if (!url) return err(new Error('A url must be specified as a parameter in .setURL()'))
@@ -175,6 +184,7 @@ class Webcord {
 
 	/**
 	 * @description Sets a timestamp on the embed.
+	 * @returns {Webcord} this
 	 */
 	setTimestamp() {
 		this.#timestamps[this.#embedIndex] = new Date()
@@ -185,6 +195,7 @@ class Webcord {
 	/**
 	 * @description Sets a color of the embed.
 	 * @param {string|number} [hex] Hex color
+	 * @returns {Webcord} this
 	 */
 	setColor(hex) {
 		if (typeof hex === 'number') hex = hex.toString(16)
@@ -213,7 +224,8 @@ class Webcord {
 		icon: null
 	}) {
 		//if (!options) return err(new Error('You must include an object in .setFooter()'))
-		if (!options.text) return err(new Error('A `text` option must be specified in the object located inside .setFooter()'))
+		if (!options.text) return err(new Error('A `text` key must be specified in the object located inside .setFooter()'))
+		if (options.text.length > 2048) return err(new Error('The `text` key cannot be longer than 2048 characters located inside .setFooter()'))
 		this.#footers[this.#embedIndex] = {
 			text: options.text,
 			icon_url: options.icon
@@ -224,6 +236,7 @@ class Webcord {
 	/**
 	 * @description Sets the image of the embed.
 	 * @param {string} url - Image url
+	 * @returns {Webcord} this
 	 */
 	setImage(url) {
 		if (!url) return err(new Error('A url must be specified as a parameter in .setImage()'))
@@ -234,6 +247,7 @@ class Webcord {
 	/**
 	 * @description Sets the thumbnail of the embed.
 	 * @param {string} url - Thumbnail url
+	 * @returns {Webcord} this
 	 */
 	setThumbnail(url) {
 		if (!url) return err(new Error('A url must be specified as a parameter in .setThumbnail()'))
@@ -262,7 +276,8 @@ class Webcord {
 		icon: null,
 		url: null
 	}) {
-		if (!options.name) return err(new Error('A `name` option must be specified in the object located inside .setAuthor()'))
+		if (!options.name) return err(new Error('A `name` key must be specified in the object located inside .setAuthor()'))
+		if (options.name.length > 256) return err(new Error('The `name` key cannot be longer than 256 characters located inside .setAuthor()'))
 		this.#authors[this.#embedIndex] = {
 			name: options.name,
 			icon_url: options.icon,
@@ -276,30 +291,57 @@ class Webcord {
 	 * @param {string} [msg] Optional basic message
 	 */
 	send(msg) {
-			const webhook = url.parse(this.#url)
-			if (msg) this.#msg.content = msg
+		const webhook = url.parse(this.#url)
+		if (msg) this.#msg.content = msg
+		let char = 0
 
-			for (let i = 0; i <= this.#embedTotal; i++) {
-				this.#msg.embeds.push({})
-				if (this.#titles[i].length !== 0) this.#msg.embeds[i].title = this.#titles[i]
-				if (this.#descriptions[i].length !== 0) this.#msg.embeds[i].description = this.#descriptions[i]
-				if (this.#urls[i].length !== 0) this.#msg.embeds[i].url = this.#urls[i]
-				if (this.#timestamps[i].length !== 0) this.#msg.embeds[i].timestamp = this.#timestamps[i]
-				if (this.#colors[i].length !== 0) this.#msg.embeds[i].color = this.#colors[i]
-				if (Object.keys(this.#footers[i]).length !== 0) this.#msg.embeds[i].footer = this.#footers[i]
-				if (this.#images[i].length !== 0) this.#msg.embeds[i].image = {
-					url: this.#images[i]
-				}
-				if (this.#thumbnails[i].length !== 0) this.#msg.embeds[i].thumbnail = {
-					url: this.#thumbnails[i]
-				}
-				if (Object.keys(this.#authors[i]).length !== 0) this.#msg.embeds[i].author = this.#authors[i]
-				if (this.#fields[i]) this.#msg.embeds[i].fields = this.#fields[i]
-				console.log(this.#msg.embeds[i])
+		for (let i = 0; i <= this.#embedTotal; i++) {
+			this.#msg.embeds[i] = {}
+			if (this.#fields[i].length !== 0 ) {
+				if (this.#fields[i].length > 25) return err(new Error('You cannot have more than 25 fields in a single embed'))
+				this.#msg.embeds[i].fields = this.#fields[i]
+				this.#fields[i].forEach((val) => {
+					console.log(val)
+					char += val.name.length
+					char += val.value.length
+				})
 			}
 
-			const payload = this.#msg
-			return new Promise(async function (resolve) {
+			if (this.#titles[i].length !== 0) {
+				this.#msg.embeds[i].title = this.#titles[i]
+				char += this.#titles[i].length
+			}
+			if (this.#descriptions[i].length !== 0) {
+				this.#msg.embeds[i].description = this.#descriptions[i]
+				char += this.#descriptions[i].length
+			}
+			if (this.#urls[i].length !== 0) this.#msg.embeds[i].url = this.#urls[i]
+			if (this.#timestamps[i].length !== 0) this.#msg.embeds[i].timestamp = this.#timestamps[i]
+			if (this.#colors[i].length !== 0) this.#msg.embeds[i].color = this.#colors[i]
+			if (Object.keys(this.#footers[i]).length !== 0) {
+				this.#msg.embeds[i].footer = this.#footers[i]
+				char += this.#footers[i].length
+			}
+			if (this.#images[i].length !== 0) this.#msg.embeds[i].image = {
+				url: this.#images[i]
+			}
+			if (this.#thumbnails[i].length !== 0) this.#msg.embeds[i].thumbnail = {
+				url: this.#thumbnails[i]
+			}
+			if (Object.keys(this.#authors[i]).length !== 0) {
+				this.#msg.embeds[i].author = this.#authors[i]
+				char += this.#authors[i].name.length
+			}
+			if (char > 6000) return err(new Error('Title, description, field.name, field.value, footer.text, and author.name cannot exceed a total character length of 6000'))
+			char = 0
+		}
+
+		this.#msg.embeds = this.#msg.embeds.filter((j) => {
+			return Object.keys(j).length !== 0
+		})
+
+		const payload = this.#msg
+		return new Promise(async function (resolve) {
 			const req = https.request({
 				hostname: webhook.host,
 				path: webhook.pathname,
