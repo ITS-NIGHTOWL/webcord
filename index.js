@@ -289,6 +289,7 @@ class Webcord {
 	/**
 	 * @description Sends webhook.
 	 * @param {string} [msg] Optional basic message
+	 * @returns {Promise.<Object>} POST request response data
 	 */
 	send(msg) {
 		const webhook = url.parse(this.#url)
