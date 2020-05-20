@@ -2,7 +2,7 @@
   "name": "webcord",
   "version": "2.1.1",
   "description": "A lightweight library for interacting with Discord webhooks.",
-  "main": "index.js",
+  "main": "./index.js",
   "directories": {
     "test": "tests"
   },
