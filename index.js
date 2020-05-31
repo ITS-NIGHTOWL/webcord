@@ -219,8 +219,8 @@ class Webcord {
 		if (!text) return err(new Error('You must specify `text` to send inside .setFooter()'))
 		if (text.length > 2048) return err(new Error('The `text` key cannot be longer than 2048 characters located inside .setFooter()'))
 		this.#footers[this.#embedIndex] = {
-			text: text,
-			icon_url: icon
+			text: options.text,
+			icon_url: options.icon
 		}
 		return this
 	}
