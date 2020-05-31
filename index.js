@@ -206,21 +206,17 @@ class Webcord {
 		return this
 	}
 
-	/**
+    /**
 	 * @description Sets the footer of the embed.
-	 * @param {object} options - Footer options
 	 * ```js
-	 * .setFooter({
-	 * 		text: "I'm a footer!",
-	 * 		icon: "https://somesite.com/image.png"
-	 * })
+	 * .setFooter("I'm a footer!", "https://somesite.com/image.png")
 	 * ```
-	 * @param {string} options.text - Footer value
-	 * @param {?string} [options.icon] - Footer icon
+	 * @param {string} text - Footer value
+	 * @param {?string} [icon] - Footer icon
 	 * @returns {Webcord} this
 	 */
 	setFooter(text, icon) {
-		if (!text) return err(new Error('A `text` key must be specified in the object located inside .setFooter()'))
+		if (!text) return err(new Error('You must specify `text` to send inside .setFooter()'))
 		if (text.length > 2048) return err(new Error('The `text` key cannot be longer than 2048 characters located inside .setFooter()'))
 		this.#footers[this.#embedIndex] = {
 			text: text,
