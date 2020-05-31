@@ -46,10 +46,7 @@ new webcord({
     icon: "https://discord.com/assets/2c21aeda16de354ba5334551a883b481.png",
     url: "https://www.npmjs.com/package/webcord"
 }) // Sets an embed author
-.setFooter({
-    text: "I'm a footer",
-    icon: "https://discord.com/assets/e05ead6e6ebc08df9291738d0aa6986d.png"
-}) // Sets an embed footer
+.setFooter("I'm a footer", "https://discord.com/assets/e05ead6e6ebc08df9291738d0aa6986d.png") // Sets an embed footer
 .setURL("https://www.npmjs.com/package/webcord") // Adds a URL to the embeds title
 .setImage("https://discord.com/assets/fc0b01fe10a0b8c602fb0106d8189d9b.png") // Sets the image of the embed
 .setTimestamp() // Sets the timestamp of the embed
