@@ -117,15 +117,11 @@ declare class webcord {
 
     /**
 	 * @description Sets the footer of the embed.
-	 * @param {object} options - Footer options
 	 * ```js
-	 * .setFooter({
-	 * 		text: "I'm a footer!",
-	 * 		icon: "https://somesite.com/image.png"
-	 * })
+	 * .setFooter("I'm a footer!", "https://somesite.com/image.png")
 	 * ```
-	 * @param {string} options.text - Footer value
-	 * @param {?string} [options.icon] - Footer icon
+	 * @param {string} text - Footer value
+	 * @param {?string} [icon] - Footer icon
 	 * @returns {Webcord} this
 	 */
     setFooter(options: Footer): this;
