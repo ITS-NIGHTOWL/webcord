@@ -219,16 +219,12 @@ class Webcord {
 	 * @param {?string} [options.icon] - Footer icon
 	 * @returns {Webcord} this
 	 */
-	setFooter(options = {
-		text: null,
-		icon: null
-	}) {
-		//if (!options) return err(new Error('You must include an object in .setFooter()'))
-		if (!options.text) return err(new Error('A `text` key must be specified in the object located inside .setFooter()'))
-		if (options.text.length > 2048) return err(new Error('The `text` key cannot be longer than 2048 characters located inside .setFooter()'))
+	setFooter(text, icon) {
+		if (!text) return err(new Error('A `text` key must be specified in the object located inside .setFooter()'))
+		if (text.length > 2048) return err(new Error('The `text` key cannot be longer than 2048 characters located inside .setFooter()'))
 		this.#footers[this.#embedIndex] = {
-			text: options.text,
-			icon_url: options.icon
+			text: text,
+			icon_url: icon
 		}
 		return this
 	}
